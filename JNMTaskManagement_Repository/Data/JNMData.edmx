@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JNM_TaskManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlertDay1Master">
+          <Key>
+            <PropertyRef Name="AlertId1" />
+          </Key>
+          <Property Name="AlertId1" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlertDay1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlertDay2Master">
+          <Key>
+            <PropertyRef Name="AlertId2" />
+          </Key>
+          <Property Name="AlertId2" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlertDay2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlertDayMaster">
+          <Key>
+            <PropertyRef Name="AlertId" />
+          </Key>
+          <Property Name="AlertId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlertDay" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApiCallLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APIName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReferenceId" Type="bigint" Nullable="false" />
+          <Property Name="TableName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApiURL" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ApiResponse" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FrequencyTypeMaster">
+          <Key>
+            <PropertyRef Name="FrequencyId" />
+          </Key>
+          <Property Name="FrequencyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FrequencyType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoginLogDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="LoginId" Type="int" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="UserType" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PriorityMaster">
+          <Key>
+            <PropertyRef Name="PriorityId" />
+          </Key>
+          <Property Name="PriorityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PriorityName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaskDetails">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PriorityId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Client" Type="nvarchar" MaxLength="200" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="DIvisionId" Type="int" />
+          <Property Name="Profile" Type="varchar" MaxLength="100" />
+          <Property Name="KRA" Type="varchar" MaxLength="100" />
+          <Property Name="ReminderDetails" Type="varchar" MaxLength="200" />
+          <Property Name="Holiday" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Time" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FrequencyId" Type="int" Nullable="false" />
+          <Property Name="AlertId" Type="int" />
+          <Property Name="AlertId1" Type="int" />
+          <Property Name="AlertId2" Type="int" />
+          <Property Name="Assign" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="IsReportingField" Type="bit" Nullable="false" />
+          <Property Name="Element" Type="varchar" MaxLength="100" />
+          <Property Name="NumericF1" Type="int" />
+          <Property Name="NumericF2" Type="int" />
+          <Property Name="NumericF3" Type="int" />
+          <Property Name="NumericF4" Type="int" />
+          <Property Name="AttachmentFileName" Type="varchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="bigint" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="bigint" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="bigint" />
+        </EntityType>
+        <EntityType Name="TaskPokeDetails">
+          <Key>
+            <PropertyRef Name="PokeId" />
+          </Key>
+          <Property Name="PokeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TaskId" Type="bigint" Nullable="false" />
+          <Property Name="TaskDescription" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TaskDetails_FrequencyTypeMaster">
+          <End Role="FrequencyTypeMaster" Type="Self.FrequencyTypeMaster" Multiplicity="1" />
+          <End Role="TaskDetails" Type="Self.TaskDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FrequencyTypeMaster">
+              <PropertyRef Name="FrequencyId" />
+            </Principal>
+            <Dependent Role="TaskDetails">
+              <PropertyRef Name="FrequencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskDetails_PriorityMaster">
+          <End Role="PriorityMaster" Type="Self.PriorityMaster" Multiplicity="1" />
+          <End Role="TaskDetails" Type="Self.TaskDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriorityMaster">
+              <PropertyRef Name="PriorityId" />
+            </Principal>
+            <Dependent Role="TaskDetails">
+              <PropertyRef Name="PriorityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskPokeDetails_TaskPokeDetails1">
+          <End Role="TaskDetails" Type="Self.TaskDetails" Multiplicity="1" />
+          <End Role="TaskPokeDetails" Type="Self.TaskPokeDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaskDetails">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="TaskPokeDetails">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JNM_TaskManagementModelStoreContainer">
+          <EntitySet Name="AlertDay1Master" EntityType="Self.AlertDay1Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlertDay2Master" EntityType="Self.AlertDay2Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlertDayMaster" EntityType="Self.AlertDayMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApiCallLog" EntityType="Self.ApiCallLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FrequencyTypeMaster" EntityType="Self.FrequencyTypeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginLogDetail" EntityType="Self.LoginLogDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PriorityMaster" EntityType="Self.PriorityMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaskDetails" EntityType="Self.TaskDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaskPokeDetails" EntityType="Self.TaskPokeDetails" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TaskDetails_FrequencyTypeMaster" Association="Self.FK_TaskDetails_FrequencyTypeMaster">
+            <End Role="FrequencyTypeMaster" EntitySet="FrequencyTypeMaster" />
+            <End Role="TaskDetails" EntitySet="TaskDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskDetails_PriorityMaster" Association="Self.FK_TaskDetails_PriorityMaster">
+            <End Role="PriorityMaster" EntitySet="PriorityMaster" />
+            <End Role="TaskDetails" EntitySet="TaskDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskPokeDetails_TaskPokeDetails1" Association="Self.FK_TaskPokeDetails_TaskPokeDetails1">
+            <End Role="TaskDetails" EntitySet="TaskDetails" />
+            <End Role="TaskPokeDetails" EntitySet="TaskPokeDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JNM_TaskManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ApiCallLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APIName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ReferenceId" Type="Int64" Nullable="false" />
+          <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApiURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApiResponse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FrequencyTypeMaster">
+          <Key>
+            <PropertyRef Name="FrequencyId" />
+          </Key>
+          <Property Name="FrequencyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FrequencyType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TaskDetails" Relationship="JNM_TaskManagementModel.FK_TaskDetails_FrequencyTypeMaster" FromRole="FrequencyTypeMaster" ToRole="TaskDetail" />
+        </EntityType>
+        <EntityType Name="LoginLogDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="LoginId" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PriorityMaster">
+          <Key>
+            <PropertyRef Name="PriorityId" />
+          </Key>
+          <Property Name="PriorityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PriorityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TaskDetails" Relationship="JNM_TaskManagementModel.FK_TaskDetails_PriorityMaster" FromRole="PriorityMaster" ToRole="TaskDetail" />
+        </EntityType>
+        <EntityType Name="TaskPokeDetail">
+          <Key>
+            <PropertyRef Name="PokeId" />
+          </Key>
+          <Property Name="PokeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TaskId" Type="Int64" Nullable="false" />
+          <Property Name="TaskDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TaskDetail" Relationship="JNM_TaskManagementModel.FK_TaskPokeDetails_TaskPokeDetails1" FromRole="TaskPokeDetail" ToRole="TaskDetail" />
+        </EntityType>
+        <EntityContainer Name="JNM_TaskManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ApiCallLogs" EntityType="Self.ApiCallLog" />
+          <EntitySet Name="FrequencyTypeMasters" EntityType="Self.FrequencyTypeMaster" />
+          <EntitySet Name="LoginLogDetails" EntityType="Self.LoginLogDetail" />
+          <EntitySet Name="PriorityMasters" EntityType="Self.PriorityMaster" />
+          <EntitySet Name="TaskPokeDetails" EntityType="Self.TaskPokeDetail" />
+          <EntitySet Name="AlertDay1Master" EntityType="JNM_TaskManagementModel.AlertDay1Master" />
+          <EntitySet Name="AlertDay2Master" EntityType="JNM_TaskManagementModel.AlertDay2Master" />
+          <EntitySet Name="AlertDayMasters" EntityType="JNM_TaskManagementModel.AlertDayMaster" />
+          <EntitySet Name="TaskDetails" EntityType="JNM_TaskManagementModel.TaskDetail" />
+          <AssociationSet Name="FK_TaskDetails_FrequencyTypeMaster" Association="JNM_TaskManagementModel.FK_TaskDetails_FrequencyTypeMaster">
+            <End Role="FrequencyTypeMaster" EntitySet="FrequencyTypeMasters" />
+            <End Role="TaskDetail" EntitySet="TaskDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskDetails_PriorityMaster" Association="JNM_TaskManagementModel.FK_TaskDetails_PriorityMaster">
+            <End Role="PriorityMaster" EntitySet="PriorityMasters" />
+            <End Role="TaskDetail" EntitySet="TaskDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskPokeDetails_TaskPokeDetails1" Association="JNM_TaskManagementModel.FK_TaskPokeDetails_TaskPokeDetails1">
+            <End Role="TaskDetail" EntitySet="TaskDetails" />
+            <End Role="TaskPokeDetail" EntitySet="TaskPokeDetails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AlertDay1Master">
+          <Key>
+            <PropertyRef Name="AlertId1" />
+          </Key>
+          <Property Name="AlertId1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlertDay1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlertDay2Master">
+          <Key>
+            <PropertyRef Name="AlertId2" />
+          </Key>
+          <Property Name="AlertId2" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlertDay2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlertDayMaster">
+          <Key>
+            <PropertyRef Name="AlertId" />
+          </Key>
+          <Property Name="AlertId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlertDay" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaskDetail">
+          <Key>
+            <PropertyRef Name="TaskId" />
+          </Key>
+          <Property Name="TaskId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PriorityId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Client" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="DIvisionId" Type="Int32" />
+          <Property Name="Profile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KRA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ReminderDetails" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Holiday" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Time" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FrequencyId" Type="Int32" Nullable="false" />
+          <Property Name="AlertId" Type="Int32" />
+          <Property Name="AlertId1" Type="Int32" />
+          <Property Name="AlertId2" Type="Int32" />
+          <Property Name="Assign" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsReportingField" Type="Boolean" Nullable="false" />
+          <Property Name="Element" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NumericF1" Type="Int32" />
+          <Property Name="NumericF2" Type="Int32" />
+          <Property Name="NumericF3" Type="Int32" />
+          <Property Name="NumericF4" Type="Int32" />
+          <Property Name="AttachmentFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int64" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="Int64" />
+          <NavigationProperty Name="FrequencyTypeMaster" Relationship="JNM_TaskManagementModel.FK_TaskDetails_FrequencyTypeMaster" FromRole="TaskDetail" ToRole="FrequencyTypeMaster" />
+          <NavigationProperty Name="PriorityMaster" Relationship="JNM_TaskManagementModel.FK_TaskDetails_PriorityMaster" FromRole="TaskDetail" ToRole="PriorityMaster" />
+          <NavigationProperty Name="TaskPokeDetails" Relationship="JNM_TaskManagementModel.FK_TaskPokeDetails_TaskPokeDetails1" FromRole="TaskDetail" ToRole="TaskPokeDetail" />
+        </EntityType>
+        <Association Name="FK_TaskDetails_FrequencyTypeMaster">
+          <End Type="JNM_TaskManagementModel.FrequencyTypeMaster" Role="FrequencyTypeMaster" Multiplicity="1" />
+          <End Type="JNM_TaskManagementModel.TaskDetail" Role="TaskDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FrequencyTypeMaster">
+              <PropertyRef Name="FrequencyId" />
+            </Principal>
+            <Dependent Role="TaskDetail">
+              <PropertyRef Name="FrequencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskDetails_PriorityMaster">
+          <End Type="JNM_TaskManagementModel.PriorityMaster" Role="PriorityMaster" Multiplicity="1" />
+          <End Type="JNM_TaskManagementModel.TaskDetail" Role="TaskDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PriorityMaster">
+              <PropertyRef Name="PriorityId" />
+            </Principal>
+            <Dependent Role="TaskDetail">
+              <PropertyRef Name="PriorityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskPokeDetails_TaskPokeDetails1">
+          <End Type="JNM_TaskManagementModel.TaskDetail" Role="TaskDetail" Multiplicity="1" />
+          <End Type="JNM_TaskManagementModel.TaskPokeDetail" Role="TaskPokeDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaskDetail">
+              <PropertyRef Name="TaskId" />
+            </Principal>
+            <Dependent Role="TaskPokeDetail">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JNM_TaskManagementModelStoreContainer" CdmEntityContainer="JNM_TaskManagementEntities">
+          <EntitySetMapping Name="ApiCallLogs">
+            <EntityTypeMapping TypeName="JNM_TaskManagementModel.ApiCallLog">
+              <MappingFragment StoreEntitySet="ApiCallLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="APIName" ColumnName="APIName" />
+                <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="ApiURL" ColumnName="ApiURL" />
+                <ScalarProperty Name="ApiResponse" ColumnName="ApiResponse" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FrequencyTypeMasters">
+            <EntityTypeMapping TypeName="JNM_TaskManagementModel.FrequencyTypeMaster">
+              <MappingFragment StoreEntitySet="FrequencyTypeMaster">
+                <ScalarProperty Name="FrequencyId" ColumnName="FrequencyId" />
+                <ScalarProperty Name="FrequencyType" ColumnName="FrequencyType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginLogDetails">
+            <EntityTypeMapping TypeName="JNM_TaskManagementModel.LoginLogDetail">
+              <MappingFragment StoreEntitySet="LoginLogDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriorityMasters">
+            <EntityTypeMapping TypeName="JNM_TaskManagementModel.PriorityMaster">
+              <MappingFragment StoreEntitySet="PriorityMaster">
+                <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+                <ScalarProperty Name="PriorityName" ColumnName="PriorityName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskPokeDetails">
+            <EntityTypeMapping TypeName="JNM_TaskManagementModel.TaskPokeDetail">
+              <MappingFragment StoreEntitySet="TaskPokeDetails">
+                <ScalarProperty Name="PokeId" ColumnName="PokeId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="TaskDescription" ColumnName="TaskDescription" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlertDay1Master">
+            <EntityTypeMapping TypeName="JNM_TaskManagementModel.AlertDay1Master">
+              <MappingFragment StoreEntitySet="AlertDay1Master">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AlertDay1" ColumnName="AlertDay1" />
+                <ScalarProperty Name="AlertId1" ColumnName="AlertId1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlertDay2Master">
+            <EntityTypeMapping TypeName="JNM_TaskManagementModel.AlertDay2Master">
+              <MappingFragment StoreEntitySet="AlertDay2Master">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AlertDay2" ColumnName="AlertDay2" />
+                <ScalarProperty Name="AlertId2" ColumnName="AlertId2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlertDayMasters">
+            <EntityTypeMapping TypeName="JNM_TaskManagementModel.AlertDayMaster">
+              <MappingFragment StoreEntitySet="AlertDayMaster">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AlertDay" ColumnName="AlertDay" />
+                <ScalarProperty Name="AlertId" ColumnName="AlertId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaskDetails">
+            <EntityTypeMapping TypeName="JNM_TaskManagementModel.TaskDetail">
+              <MappingFragment StoreEntitySet="TaskDetails">
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AttachmentFileName" ColumnName="AttachmentFileName" />
+                <ScalarProperty Name="NumericF4" ColumnName="NumericF4" />
+                <ScalarProperty Name="NumericF3" ColumnName="NumericF3" />
+                <ScalarProperty Name="NumericF2" ColumnName="NumericF2" />
+                <ScalarProperty Name="NumericF1" ColumnName="NumericF1" />
+                <ScalarProperty Name="Element" ColumnName="Element" />
+                <ScalarProperty Name="IsReportingField" ColumnName="IsReportingField" />
+                <ScalarProperty Name="Assign" ColumnName="Assign" />
+                <ScalarProperty Name="AlertId2" ColumnName="AlertId2" />
+                <ScalarProperty Name="AlertId1" ColumnName="AlertId1" />
+                <ScalarProperty Name="AlertId" ColumnName="AlertId" />
+                <ScalarProperty Name="FrequencyId" ColumnName="FrequencyId" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Holiday" ColumnName="Holiday" />
+                <ScalarProperty Name="ReminderDetails" ColumnName="ReminderDetails" />
+                <ScalarProperty Name="KRA" ColumnName="KRA" />
+                <ScalarProperty Name="Profile" ColumnName="Profile" />
+                <ScalarProperty Name="DIvisionId" ColumnName="DIvisionId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PriorityId" ColumnName="PriorityId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
